@@ -1,0 +1,27 @@
+---
+import Grid from '../layout/solid/grid';
+import PadContent from '../layout/solid/pad-content';
+import AboutHero from '../components/solid/about-hero';
+import AboutInfo from '../components/solid/about-info';
+import LocationsLinks from '../components/solid/locations-links';
+import { aboutInfo, aboutInfo2 } from '../data/aboutInfo';
+import style from '../styles/pages/about.module.scss';
+import Layout from '../layout/astro/Layout.astro';
+---
+
+<Layout title="About us">
+  <div class={style.about}>
+    <Grid>
+      <PadContent startAt="tablet">
+        <Grid startGap="0">
+          <AboutHero />
+          <AboutInfo {...aboutInfo} />
+        </Grid>
+      </PadContent>
+      <LocationsLinks />
+      <PadContent startAt="tablet">
+        <AboutInfo {...aboutInfo2} />
+      </PadContent>
+    </Grid>
+  </div>
+</Layout>

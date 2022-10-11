@@ -1,0 +1,17 @@
+---
+import CTA from '../../../components/solid/cta';
+import { getPattern } from '../../../data/pagePatterns';
+import style from './main.module.scss';
+
+const { pathname } = Astro.url;
+---
+
+<main class={style.main}>
+  <div class={style.main__pageContent}>
+    <slot />
+  </div>
+  <div class={style.main__patternBox}>
+    {getPattern(pathname).map((el) => <div style={el} />)}
+  </div>
+  {pathname !== '/contact' && <CTA />}
+</main>

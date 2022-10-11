@@ -1,0 +1,27 @@
+---
+import SocialIcons from '../../../components/solid/social-icons';
+import Logo from '../../../components/solid/logo';
+import NavLinks from '../../../components/solid/nav-links';
+import LocationInfo from '../../../components/solid/location-info';
+import PadContent from '../../../layout/solid/pad-content';
+import { mainOffice } from '../../../data/mainOffice';
+import style from './footer.module.scss';
+---
+
+<footer class={style.footer}>
+  <PadContent>
+    <div class="mwr">
+      <div class={style.footer__links}>
+        <Logo color="light" />
+        <div class={style.footer__line}></div>
+        <NavLinks footer />
+      </div>
+      <div class={style.footer__info}>
+        <LocationInfo class={style.footer__location} office={mainOffice} main />
+        <div class={style.footer__icons}>
+          <SocialIcons />
+        </div>
+      </div>
+    </div>
+  </PadContent>
+</footer>

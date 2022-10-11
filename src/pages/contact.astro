@@ -1,0 +1,19 @@
+---
+import Layout from '../layout/astro/Layout.astro';
+import Grid from '../layout/solid/grid';
+import PadContent from '../layout/solid/pad-content';
+import ContactHero from '../components/solid/contact-hero';
+import LocationsLinks from '../components/solid/locations-links';
+import style from '../styles/pages/contact.module.scss';
+---
+
+<Layout title="Contact us">
+  <div class={style.contact}>
+    <Grid>
+      <PadContent startAt="tablet">
+        <ContactHero client:load />
+      </PadContent>
+      <LocationsLinks />
+    </Grid>
+  </div>
+</Layout>

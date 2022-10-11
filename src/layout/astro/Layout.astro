@@ -1,0 +1,133 @@
+---
+import Header from '../solid/header';
+import Footer from './footer/Footer.astro';
+import Main from './main/Main.astro';
+
+type Props = {
+  title: string;
+};
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="description" content="designo project app" />
+    <title>{`Designo - ${title}`}</title>
+  </head>
+  <body>
+    <Header client:load />
+    <Main>
+      <slot />
+    </Main>
+    <Footer />
+    <style is:global lang="scss">
+      @import '../../styles/variables';
+
+      @font-face {
+        font-family: 'Jost';
+        font-style: normal;
+        font-weight: 400;
+        src: local(''), url('/fonts/jost-400.woff2') format('woff2'),
+          url('/fonts/jost-400.woff') format('woff'),
+          url('/fonts/jost-400.ttf') format('truetype');
+      }
+
+      @font-face {
+        font-family: 'Jost';
+        font-style: normal;
+        font-weight: 500;
+        src: local(''), url('/fonts/jost-500.woff2') format('woff2'),
+          url('/fonts/jost-500.woff') format('woff'),
+          url('/fonts/jost-500.ttf') format('truetype');
+      }
+
+      @font-face {
+        font-family: 'Jost';
+        font-style: normal;
+        font-weight: 700;
+        src: local(''), url('/fonts/jost-700.woff2') format('woff2'),
+          url('/fonts/jost-700.woff') format('woff'),
+          url('/fonts/jost-700.ttf') format('truetype');
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: inherit;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        font-family: 'Jost', sans-serif;
+        box-sizing: border-box;
+        background-color: #fff;
+      }
+
+      .h {
+        font-weight: 500;
+        font-size: 3.2rem;
+        line-height: 3.6rem;
+      }
+
+      .p {
+        font-weight: 400;
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+      }
+
+      ol,
+      ul {
+        list-style: none;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+      }
+
+      .mwr {
+        margin: 0 auto;
+        max-width: $max-width-s;
+      }
+
+      @media (min-width: 689px) {
+        .round-689 {
+          border-radius: 15px;
+        }
+      }
+
+      @media (min-width: $media-m) {
+        .mwr {
+          max-width: $max-width;
+        }
+
+        .h {
+          font-size: 4.8rem;
+          line-height: 4.8rem;
+
+          &--2 {
+            font-size: 4rem;
+          }
+        }
+
+        .p {
+          font-size: 1.6rem;
+          line-height: 2.6rem;
+        }
+      }
+    </style>
+  </body>
+</html>

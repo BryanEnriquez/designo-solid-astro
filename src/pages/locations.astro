@@ -1,0 +1,14 @@
+---
+import Layout from '../layout/astro/Layout.astro';
+import PadContent from '../layout/solid/pad-content';
+import Maps from '../components/solid/maps';
+import style from '../styles/pages/locations.module.scss';
+---
+
+<Layout title="Locations">
+  <div class={style.locations}>
+    <PadContent startAt="tablet">
+      <Maps client:load />
+    </PadContent>
+  </div>
+</Layout>

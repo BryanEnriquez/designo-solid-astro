@@ -1,0 +1,48 @@
+---
+import Layout from '../../layout/astro/Layout.astro';
+import Grid from '../../layout/solid/grid';
+import GridGallery from '../../components/solid/grid-gallery';
+import PadContent from '../../layout/solid/pad-content';
+import Picture from '../../components/solid/picture';
+import DesignBlockLinks from '../../components/solid/design-block-links';
+import { designData } from '../../data/designCopy';
+import type { CategoryData } from '../../data/designCopy';
+import type { DesignCategories } from '../../types';
+import style from '../../styles/pages/design.module.scss';
+
+export async function getStaticPaths() {
+  return (['web', 'app', 'graphic'] as DesignCategories[]).map((el) => ({
+    params: { slug: el },
+    props: { category: el, data: designData[el] },
+  }));
+}
+
+type Props = {
+  category: DesignCategories;
+  data: CategoryData;
+};
+
+const { category, data } = Astro.props;
+
+const svgBreakpoints: [number, number] = [767, 1049];
+---
+
+<Layout title={`${category[0].toUpperCase() + category.slice(1)} design`}>
+  <div class={style.design}>
+    <Grid startGap="96">
+      <PadContent startAt="tablet">
+        <div
+          class={`${style.design__hero} ${
+            style[`design__hero--${category}`]
+          } round-689`}
+        >
+          <h1 class="h">{`${category} design`}</h1>
+          <p class="p">{data.copy}</p>
+          <Picture imgs={data.heroSvg} breakpoints={svgBreakpoints} />
+        </div>
+      </PadContent>
+      <GridGallery imgs={data.imgs} client:load />
+      <DesignBlockLinks location={category} />
+    </Grid>
+  </div>
+</Layout>

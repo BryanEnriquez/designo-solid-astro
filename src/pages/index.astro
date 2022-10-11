@@ -1,0 +1,18 @@
+---
+import Layout from '../layout/astro/Layout.astro';
+import Grid from '../layout/solid/grid';
+import Hero from '../components/solid/hero';
+import DesignBlockLinks from '../components/solid/design-block-links';
+import ThreeKeyPoints from '../components/solid/three-key-points';
+import style from '../styles/pages/home.module.scss';
+---
+
+<Layout title="Homepage">
+  <div class={style.home}>
+    <Grid>
+      <Hero />
+      <DesignBlockLinks location={'home'} />
+      <ThreeKeyPoints />
+    </Grid>
+  </div>
+</Layout>

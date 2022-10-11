@@ -1,0 +1,23 @@
+{
+  "name": "designo",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && tsc --noEmit && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "mapbox-gl": "^2.10.0",
+    "solid-js": "^1.5.7"
+  },
+  "devDependencies": {
+    "@astrojs/solid-js": "^1.1.1",
+    "@types/mapbox-gl": "^2.7.6",
+    "astro": "^1.4.7",
+    "sass": "^1.55.0"
+  }
+}
