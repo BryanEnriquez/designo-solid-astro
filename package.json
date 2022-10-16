@@ -15,9 +15,9 @@
     "solid-js": "^1.5.7"
   },
   "devDependencies": {
-    "@astrojs/solid-js": "^1.1.1",
+    "@astrojs/solid-js": "^1.2.0",
     "@types/mapbox-gl": "^2.7.6",
-    "astro": "^1.4.7",
+    "astro": "^1.5.0",
     "sass": "^1.55.0"
   }
 }
